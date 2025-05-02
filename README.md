@@ -1,6 +1,6 @@
 # State Utils
 
-A collection of utilities for managing quantum state configurations and related operations.
+A collection of utilities for managing quam state configurations and related operations.
 
 ## Installation
 
@@ -10,10 +10,10 @@ pip install state-utils
 
 ## Usage
 
-This package provides several utilities for managing quantum state configurations:
+This package provides several utilities for managing quam state configurations:
 
 ### Frequency Collection and Analysis
-The `collect_frequencies.py` script analyzes and displays frequency information from quantum state configurations. It helps identify potential frequency conflicts and provides a clear overview of the frequency setup.
+The `collect_frequencies.py` script analyzes and displays frequency information from quam state configurations. It helps identify potential frequency conflicts and provides a clear overview of the frequency setup.
 
 ```bash
 # Basic usage
@@ -101,27 +101,44 @@ The `collect_qubit_pairs.py` script analyzes and identifies qubit pairs, particu
 
 ```bash
 # Basic usage
-python -m state_utils.collect_qubit_pairs --state-path state.json --wiring-path wiring.json
+python -m state_utils.collect_qubit_pairs --state-path /path/to/state/directory
 ```
 
 Example output:
 ```
-Grid Locations:
-q0: (0, 0)
-q1: (0, 1)
-q2: (1, 0)
-q3: (1, 1)
-
-Nearest Neighbor Pairs:
-q0 - q1 (Distance: 1.0)
-q0 - q2 (Distance: 1.0)
-q1 - q3 (Distance: 1.0)
-q2 - q3 (Distance: 1.0)
-
-Frequency Analysis:
-Pair    XY Freq Diff (MHz)  RR Freq Diff (MHz)  Status
-q0-q1   250.0              300.0               Compatible
-q0-q2   500.0              400.0               Warning
+Printing Qubit Pairs (Control -> Target):
+qA1-qA2: qA2 (5.667 GHz) -> qA1 (5.016 GHz)
+qA1-qA3: qA3 (5.670 GHz) -> qA1 (5.016 GHz)
+qA1-qD5: qD5 (5.865 GHz) -> qA1 (5.016 GHz)
+qA2-qA4: qA2 (5.667 GHz) -> qA4 (5.181 GHz)
+qA3-qA4: qA3 (5.670 GHz) -> qA4 (5.181 GHz)
+qA3-qA6: qA6 (6.400 GHz) -> qA3 (5.670 GHz)
+qA3-qD4: qD4 (6.593 GHz) -> qA3 (5.670 GHz)
+qA4-qA5: qA5 (5.694 GHz) -> qA4 (5.181 GHz)
+qA4-qB3: qB3 (5.696 GHz) -> qA4 (5.181 GHz)
+qA5-qB1: qA5 (5.694 GHz) -> qB1 (5.010 GHz)
+qA6-qB3: qA6 (6.400 GHz) -> qB3 (5.696 GHz)
+qA6-qC3: qA6 (6.400 GHz) -> qC3 (5.706 GHz)
+qA6-qD3: qA6 (6.400 GHz) -> qD3 (6.061 GHz)
+qB1-qB2: qB2 (6.078 GHz) -> qB1 (5.010 GHz)
+qB1-qB3: qB3 (5.696 GHz) -> qB1 (5.010 GHz)
+qB2-qB4: qB4 (6.593 GHz) -> qB2 (6.078 GHz)
+qB3-qB4: qB4 (6.593 GHz) -> qB3 (5.696 GHz)
+qB4-qB5: qB4 (6.593 GHz) -> qB5 (5.871 GHz)
+qB4-qC3: qB4 (6.593 GHz) -> qC3 (5.706 GHz)
+qB5-qC1: qB5 (5.871 GHz) -> qC1 (4.977 GHz)
+qC1-qC2: qC2 (5.889 GHz) -> qC1 (4.977 GHz)
+qC1-qC3: qC3 (5.706 GHz) -> qC1 (4.977 GHz)
+qC2-qC4: qC2 (5.889 GHz) -> qC4 (5.146 GHz)
+qC3-qC4: qC3 (5.706 GHz) -> qC4 (5.146 GHz)
+qC4-qC5: qC5 (6.222 GHz) -> qC4 (5.146 GHz)
+qC4-qD3: qD3 (6.061 GHz) -> qC4 (5.146 GHz)
+qC5-qD1: qC5 (6.222 GHz) -> qD1 (5.356 GHz)
+qD1-qD2: qD2 (6.009 GHz) -> qD1 (5.356 GHz)
+qD1-qD3: qD3 (6.061 GHz) -> qD1 (5.356 GHz)
+qD2-qD4: qD4 (6.593 GHz) -> qD2 (6.009 GHz)
+qD3-qD4: qD4 (6.593 GHz) -> qD3 (6.061 GHz)
+qD4-qD5: qD4 (6.593 GHz) -> qD5 (5.865 GHz)
 ```
 
 This script:
@@ -131,7 +148,7 @@ This script:
 - Color-codes frequencies based on their bands for easy visualization
 
 ### Other Utilities
-- `state_to_cloud.py`: Upload quantum state configurations to the cloud
+- `state_to_cloud.py`: Upload quam state configurations to the cloud
 - `modify_quam.py`: Modify QUAM configurations
 - `make_wiring_lffem_mwfem.py`: Generate wiring configurations
 - `make_quam.py`: Create QUAM configurations
