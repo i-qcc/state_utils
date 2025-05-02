@@ -1,0 +1,3 @@
+quam-libs>=0.1.0
+iqcc-cloud-client>=0.1.0
+argparse>=1.4.0
