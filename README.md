@@ -148,12 +148,47 @@ This script:
 - Color-codes frequencies based on their bands for easy visualization
 
 ### Other Utilities
-- `state_to_cloud.py`: Upload quam state configurations to the cloud
-- `modify_quam.py`: Modify QUAM configurations
-- `make_wiring_lffem_mwfem.py`: Generate wiring configurations
-- `make_quam.py`: Create QUAM configurations
 
-Each script can be configured with custom paths for input/output files using command line arguments.
+#### State Configuration Workflow
+The following scripts are designed to be run sequentially to create and configure a complete quam state setup:
+
+1. **Generate Wiring Configuration**
+```bash
+python -m state_utils.make_wiring_lffem_mwfem --output wiring.json
+```
+This script:
+- Creates the initial wiring configuration file
+- Sets up the basic structure for low-frequency and microwave frequency connections
+- Outputs a JSON file that defines the physical connections between components
+
+2. **Create QUAM State**
+```bash
+python -m state_utils.make_quam --wiring-path wiring.json --output state.json
+```
+This script:
+- Takes the wiring configuration as input
+- Creates the initial state configuration
+- Sets up basic parameters for all qubits and components
+- Outputs a state JSON file that can be further modified
+
+3. **Modify QUAM Configuration**
+```bash
+python -m state_utils.modify_quam --state-path state.json --output modified_state.json
+```
+This script:
+- Takes the initial state configuration
+- Applies custom modifications and optimizations
+- Updates parameters based on specific requirements
+- Outputs a final, modified state configuration
+
+The typical workflow is:
+1. Generate wiring configuration using `make_wiring_lffem_mwfem`
+2. Create initial state using `make_quam` with the wiring configuration
+3. Modify the state using `modify_quam` to achieve the desired configuration
+
+Each script supports additional command-line arguments for fine-tuning the configuration. Use `--help` with any script to see available options.
+
+- `state_to_cloud.py`: Upload quam state configurations to the cloud
 
 ## Development
 
